@@ -1,3 +1,3 @@
-# fabbers.io
+# fabbers
 
-fabbers.io app for finding collaborative people and projects
+fabber is a flutter learning project for helping makers and fabbers find collaborative projects.
