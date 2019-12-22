@@ -19,11 +19,21 @@ class FabberApp extends StatelessWidget {
                 backgroundImage: AssetImage('images/character.png'),
               ),
               Text(
-                'fabulous fabber',
+                'fab(ulous) fabber',
                 style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 40,
-                    fontWeight: FontWeight.bold),
+                  fontFamily: 'PatuaOne',
+                  color: Colors.white,
+                  fontSize: 40,
+                  letterSpacing: 1.5,
+                ),
+              ),
+              Text(
+                'find amazing people with incredible skills',
+                style: TextStyle(
+                  fontFamily: 'PatuaOne',
+                  color: Colors.grey.shade300,
+                  fontSize: 20.0,
+                ),
               )
             ],
           ),
