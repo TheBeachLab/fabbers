@@ -40,22 +40,18 @@ class FabberApp extends StatelessWidget {
                 color: Colors.white,
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: Row(
-                    children: <Widget>[
-                      Icon(
-                        Icons.explore,
-                        size: 45.0,
+                  child: ListTile(
+                    leading: Icon(
+                      Icons.explore,
+                      color: Colors.grey.shade800,
+                      size: 45.0,
+                    ),
+                    title: Text(
+                      'http://www.fabbers.io',
+                      style: TextStyle(
+                        fontSize: 20.0,
                       ),
-                      SizedBox(
-                        width: 15.0,
-                      ),
-                      Text(
-                        'http://www.fabbers.io',
-                        style: TextStyle(
-                          fontSize: 20.0,
-                        ),
-                      ),
-                    ],
+                    ),
                   ),
                 ),
               ),
@@ -64,22 +60,18 @@ class FabberApp extends StatelessWidget {
                 color: Colors.white,
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: Row(
-                    children: <Widget>[
-                      Icon(
-                        Icons.email,
-                        size: 45.0,
+                  child: ListTile(
+                    leading: Icon(
+                      Icons.email,
+                      size: 45.0,
+                      color: Colors.grey.shade800,
+                    ),
+                    title: Text(
+                      'hola@beachlab.org',
+                      style: TextStyle(
+                        fontSize: 20.0,
                       ),
-                      SizedBox(
-                        width: 15.0,
-                      ),
-                      Text(
-                        'hola@beachlab.org',
-                        style: TextStyle(
-                          fontSize: 20.0,
-                        ),
-                      ),
-                    ],
+                    ),
                   ),
                 ),
               ),
