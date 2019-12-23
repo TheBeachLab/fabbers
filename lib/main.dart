@@ -1,18 +1,61 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(FabberApp());
+  runApp(
+    MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        backgroundColor: Colors.deepOrange,
+        appBar: AppBar(
+          title: Text('Random Generator'),
+          backgroundColor: Colors.deepOrange.shade800,
+        ),
+        body: DicePage(),
+      ),
+    ),
+  );
+}
+
+class DicePage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    var leftDiceNumber = 5;
+    var rightDiceNumber = 3;
+    return Center(
+      child: Row(
+        children: <Widget>[
+          Expanded(
+            child: FlatButton(
+              onPressed: () {
+                print('Left button got pressed.');
+              },
+              child: Image.asset('images/dice$leftDiceNumber.png'),
+            ),
+          ),
+          Expanded(
+            child: FlatButton(
+              onPressed: () {
+                print('Right button got pressed.');
+              },
+              child: Image.asset('images/dice$rightDiceNumber.png'),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
 }
 
 class FabberApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
       home: Scaffold(
         backgroundColor: Colors.deepOrange,
         body: SafeArea(
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               CircleAvatar(
                 radius: 100,
@@ -35,8 +78,15 @@ class FabberApp extends StatelessWidget {
                   fontSize: 20.0,
                 ),
               ),
+              SizedBox(
+                height: 20.0,
+                width: 200.0,
+                child: Divider(
+                  color: Colors.deepOrange.shade100,
+                ),
+              ),
               Card(
-                margin: EdgeInsets.symmetric(vertical: 20.0, horizontal: 20.0),
+                margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
                 color: Colors.white,
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),

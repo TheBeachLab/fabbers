@@ -2,9 +2,11 @@
 
 A mobile app for finding collaborative people and projects.
 
+![screenshot](screenshot.png)
+
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+I have never coded a mobile app in my entire life. If I could make this app, you also can!
 
 A few resources to get you started if this is your first Flutter project:
 
