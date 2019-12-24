@@ -1,12 +1,14 @@
 # fabbers
 
+> **Warning:** This is not a funcional app yet!
+
 A mobile app for finding collaborative people and projects.
 
 ![screenshot](screenshot.png)
 
 ## Getting Started
 
-I have never coded a mobile app in my entire life. If I could make this app, you also can!
+I have never coded a mobile app in my entire life. If I can make this app, you also can!
 
 A few resources to get you started if this is your first Flutter project:
 

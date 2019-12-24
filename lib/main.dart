@@ -1,19 +1,44 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'dart:math';
+import 'package:audioplayers/audio_cache.dart';
 
 void main() {
-  runApp(
-    MaterialApp(
+  runApp(XylophoneApp());
+}
+
+class XylophoneApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        backgroundColor: Colors.deepOrange,
-        appBar: AppBar(
-          title: Text('Random Generator'),
-          backgroundColor: Colors.deepOrange.shade800,
+        body: SafeArea(
+          child: Center(
+            child: FlatButton(
+              onPressed: () {
+                final player = AudioCache();
+                player.play('note1.wav');
+              },
+              child: Text('Play'),
+            ),
+          ),
         ),
-        body: DicePage(),
       ),
+    );
+  }
+}
+
+void DiceApp() {
+  MaterialApp(
+    debugShowCheckedModeBanner: false,
+    home: Scaffold(
+      backgroundColor: Colors.deepOrange,
+      appBar: AppBar(
+        title: Text('Random Generator'),
+        backgroundColor: Colors.deepOrange.shade800,
+      ),
+      body: DicePage(),
     ),
   );
 }
