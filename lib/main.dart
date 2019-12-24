@@ -13,7 +13,7 @@ class XylophoneApp extends StatelessWidget {
     player.play('note$note.wav');
   }
 
-  Expanded paintKey({int key, var keyColor}) {
+  Expanded paintKey({int key, Color keyColor}) {
     return Expanded(
       child: FlatButton(
         color: keyColor,
