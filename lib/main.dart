@@ -13,66 +13,36 @@ class XylophoneApp extends StatelessWidget {
     player.play('note$note.wav');
   }
 
+  Expanded paintKey({int key, var keyColor}) {
+    return Expanded(
+      child: FlatButton(
+        color: keyColor,
+        onPressed: () {
+          playSound(key);
+        },
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
+        backgroundColor: Colors.black,
         body: SafeArea(
-          child: Center(
-            child: Column(
-              children: <Widget>[
-                FlatButton(
-                  color: Colors.red,
-                  onPressed: () {
-                    playSound(1);
-                  },
-                  child: Container(),
-                ),
-                FlatButton(
-                  color: Colors.orange,
-                  onPressed: () {
-                    playSound(2);
-                  },
-                  child: Container(),
-                ),
-                FlatButton(
-                  color: Colors.yellow,
-                  onPressed: () {
-                    playSound(3);
-                  },
-                  child: Container(),
-                ),
-                FlatButton(
-                  color: Colors.green,
-                  onPressed: () {
-                    playSound(4);
-                  },
-                  child: Container(),
-                ),
-                FlatButton(
-                  color: Colors.cyan,
-                  onPressed: () {
-                    playSound(5);
-                  },
-                  child: Container(),
-                ),
-                FlatButton(
-                  color: Colors.blue,
-                  onPressed: () {
-                    playSound(6);
-                  },
-                  child: Container(),
-                ),
-                FlatButton(
-                  color: Colors.purple,
-                  onPressed: () {
-                    playSound(7);
-                  },
-                  child: Container(),
-                ),
-              ],
-            ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            mainAxisSize: MainAxisSize.max,
+            children: <Widget>[
+              paintKey(key: 1, keyColor: Colors.red),
+              paintKey(key: 2, keyColor: Colors.orange),
+              paintKey(key: 3, keyColor: Colors.yellow),
+              paintKey(key: 4, keyColor: Colors.green),
+              paintKey(key: 5, keyColor: Colors.cyan),
+              paintKey(key: 6, keyColor: Colors.blue),
+              paintKey(key: 7, keyColor: Colors.purple),
+            ],
           ),
         ),
       ),
