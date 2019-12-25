@@ -29,6 +29,25 @@ class QuizPage extends StatefulWidget {
 
 class _QuizPageState extends State<QuizPage> {
   List<Icon> scoreKeeper = [];
+
+  List<String> questions = [
+    'Commercial boards (like Arduino) are forbidden in Fab Academy',
+    'In molding and casting I decided to 3D print my tooling. This is valid',
+    'Question 3',
+    'Question 4',
+    'Question 5',
+  ];
+
+  List<bool> answers = [
+    false,
+    true,
+    false,
+    true,
+    true,
+  ];
+
+  int questionNumber = 0;
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -45,7 +64,7 @@ class _QuizPageState extends State<QuizPage> {
             child: Padding(
               padding: const EdgeInsets.all(16.0),
               child: Text(
-                'This a the question placeholder that can be very long. Including multiple sentences',
+                questions[questionNumber],
                 style: TextStyle(
                   fontSize: 30.0,
                 ),
@@ -67,12 +86,23 @@ class _QuizPageState extends State<QuizPage> {
                     onPressed: () {
                       setState(
                         () {
-                          scoreKeeper.add(
-                            Icon(
-                              Icons.radio_button_unchecked,
-                              color: Colors.green,
-                            ),
-                          );
+                          bool correctAnswer = answers[questionNumber];
+                          if (correctAnswer == true) {
+                            scoreKeeper.add(
+                              Icon(
+                                Icons.radio_button_unchecked,
+                                color: Colors.green,
+                              ),
+                            );
+                          } else {
+                            scoreKeeper.add(
+                              Icon(
+                                Icons.radio_button_unchecked,
+                                color: Colors.red,
+                              ),
+                            );
+                          }
+                          questionNumber++;
                         },
                       );
                     },
@@ -95,12 +125,23 @@ class _QuizPageState extends State<QuizPage> {
                     onPressed: () {
                       setState(
                         () {
-                          scoreKeeper.add(
-                            Icon(
-                              Icons.radio_button_unchecked,
-                              color: Colors.red,
-                            ),
-                          );
+                          bool correctAnswer = answers[questionNumber];
+                          if (correctAnswer == true) {
+                            scoreKeeper.add(
+                              Icon(
+                                Icons.radio_button_unchecked,
+                                color: Colors.red,
+                              ),
+                            );
+                          } else {
+                            scoreKeeper.add(
+                              Icon(
+                                Icons.radio_button_unchecked,
+                                color: Colors.green,
+                              ),
+                            );
+                          }
+                          questionNumber++;
                         },
                       );
                     },
