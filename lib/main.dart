@@ -4,7 +4,92 @@ import 'dart:math';
 import 'package:audioplayers/audio_cache.dart';
 
 void main() {
-  runApp(XylophoneApp());
+  runApp(InstructQuizz());
+}
+
+class InstructQuizz extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        backgroundColor: Colors.grey.shade300,
+        body: SafeArea(
+          child: QuizPage(),
+        ),
+      ),
+    );
+  }
+}
+
+class QuizPage extends StatefulWidget {
+  @override
+  _QuizPageState createState() => _QuizPageState();
+}
+
+class _QuizPageState extends State<QuizPage> {
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: <Widget>[
+        Expanded(
+          flex: 5,
+          child: Center(
+            child: Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Text(
+                'This a the question placeholder that can be very long. Including multiple sentences',
+                style: TextStyle(
+                  fontSize: 30.0,
+                ),
+                textAlign: TextAlign.center,
+              ),
+            ),
+          ),
+        ),
+        Expanded(
+          child: Row(
+            children: <Widget>[
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: FlatButton(
+                    color: Colors.green.shade400,
+                    textColor: Colors.white,
+                    padding: EdgeInsets.all(10.0),
+                    onPressed: () {},
+                    child: Text(
+                      'Yes',
+                      style: TextStyle(
+                        fontSize: 35.0,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: FlatButton(
+                    color: Colors.red.shade400,
+                    textColor: Colors.white,
+                    padding: EdgeInsets.all(10.0),
+                    onPressed: () {},
+                    child: Text(
+                      'No',
+                      style: TextStyle(
+                        fontSize: 35.0,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ],
+    );
+  }
 }
 
 class XylophoneApp extends StatelessWidget {
