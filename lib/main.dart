@@ -2,6 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'dart:math';
 import 'package:audioplayers/audio_cache.dart';
+import 'quizzbrain.dart';
+
+QuizzBrain quizzBrain =
+    QuizzBrain(); // create a quizzBrain object from QuizzBrain Class
 
 void main() {
   runApp(InstructQuizz());
@@ -30,24 +34,6 @@ class QuizPage extends StatefulWidget {
 class _QuizPageState extends State<QuizPage> {
   List<Icon> scoreKeeper = [];
 
-  List<String> questions = [
-    'Commercial boards (like Arduino) are forbidden in Fab Academy',
-    'In molding and casting I decided to 3D print my tooling. This is valid',
-    'Question 3',
-    'Question 4',
-    'Question 5',
-  ];
-
-  List<bool> answers = [
-    false,
-    true,
-    false,
-    true,
-    true,
-  ];
-
-  int questionNumber = 0;
-
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -64,7 +50,7 @@ class _QuizPageState extends State<QuizPage> {
             child: Padding(
               padding: const EdgeInsets.all(16.0),
               child: Text(
-                questions[questionNumber],
+                quizzBrain.getQuestionText(),
                 style: TextStyle(
                   fontSize: 30.0,
                 ),
@@ -86,7 +72,7 @@ class _QuizPageState extends State<QuizPage> {
                     onPressed: () {
                       setState(
                         () {
-                          bool correctAnswer = answers[questionNumber];
+                          bool correctAnswer = quizzBrain.getCorrectAnswer();
                           if (correctAnswer == true) {
                             scoreKeeper.add(
                               Icon(
@@ -102,7 +88,7 @@ class _QuizPageState extends State<QuizPage> {
                               ),
                             );
                           }
-                          questionNumber++;
+                          quizzBrain.nextQuestion();
                         },
                       );
                     },
@@ -125,7 +111,7 @@ class _QuizPageState extends State<QuizPage> {
                     onPressed: () {
                       setState(
                         () {
-                          bool correctAnswer = answers[questionNumber];
+                          bool correctAnswer = quizzBrain.getCorrectAnswer();
                           if (correctAnswer == true) {
                             scoreKeeper.add(
                               Icon(
@@ -141,7 +127,7 @@ class _QuizPageState extends State<QuizPage> {
                               ),
                             );
                           }
-                          questionNumber++;
+                          quizzBrain.nextQuestion();
                         },
                       );
                     },
