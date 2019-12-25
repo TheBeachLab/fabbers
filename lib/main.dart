@@ -28,10 +28,17 @@ class QuizPage extends StatefulWidget {
 }
 
 class _QuizPageState extends State<QuizPage> {
+  List<Icon> scoreKeeper = [];
   @override
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Row(
+            children: scoreKeeper,
+          ),
+        ),
         Expanded(
           flex: 5,
           child: Center(
@@ -57,9 +64,20 @@ class _QuizPageState extends State<QuizPage> {
                     color: Colors.green.shade400,
                     textColor: Colors.white,
                     padding: EdgeInsets.all(10.0),
-                    onPressed: () {},
+                    onPressed: () {
+                      setState(
+                        () {
+                          scoreKeeper.add(
+                            Icon(
+                              Icons.radio_button_unchecked,
+                              color: Colors.green,
+                            ),
+                          );
+                        },
+                      );
+                    },
                     child: Text(
-                      'Yes',
+                      'True',
                       style: TextStyle(
                         fontSize: 35.0,
                       ),
@@ -74,9 +92,20 @@ class _QuizPageState extends State<QuizPage> {
                     color: Colors.red.shade400,
                     textColor: Colors.white,
                     padding: EdgeInsets.all(10.0),
-                    onPressed: () {},
+                    onPressed: () {
+                      setState(
+                        () {
+                          scoreKeeper.add(
+                            Icon(
+                              Icons.radio_button_unchecked,
+                              color: Colors.red,
+                            ),
+                          );
+                        },
+                      );
+                    },
                     child: Text(
-                      'No',
+                      'False',
                       style: TextStyle(
                         fontSize: 35.0,
                       ),
