@@ -8,8 +8,42 @@ QuizzBrain quizzBrain =
     QuizzBrain(); // create a quizzBrain object from QuizzBrain Class
 
 void main() {
-  runApp(InstructQuizz());
+  runApp(ChipLoadCalculator());
 }
+
+class ChipLoadCalculator extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: InputPage(),
+    );
+  }
+}
+
+class InputPage extends StatefulWidget {
+  @override
+  _InputPageState createState() => _InputPageState();
+}
+
+class _InputPageState extends State<InputPage> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Chip Load Calculator'),
+      ),
+      body: Center(
+        child: Text('This is some text'),
+      ),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.add),
+      ),
+    );
+  }
+}
+
+// ==========
 
 class InstructQuizz extends StatelessWidget {
   @override
