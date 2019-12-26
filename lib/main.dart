@@ -34,6 +34,19 @@ class QuizPage extends StatefulWidget {
 class _QuizPageState extends State<QuizPage> {
   List<Icon> scoreKeeper = [];
 
+  void checkAnswer(bool userAnswer) {
+    bool correctAnswer = quizzBrain.getCorrectAnswer();
+    setState(() {
+      if (userAnswer == correctAnswer) {
+        scoreKeeper
+            .add(Icon(Icons.radio_button_unchecked, color: Colors.green));
+      } else {
+        scoreKeeper.add(Icon(Icons.radio_button_unchecked, color: Colors.red));
+      }
+      quizzBrain.nextQuestion();
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -70,27 +83,7 @@ class _QuizPageState extends State<QuizPage> {
                     textColor: Colors.white,
                     padding: EdgeInsets.all(10.0),
                     onPressed: () {
-                      setState(
-                        () {
-                          bool correctAnswer = quizzBrain.getCorrectAnswer();
-                          if (correctAnswer == true) {
-                            scoreKeeper.add(
-                              Icon(
-                                Icons.radio_button_unchecked,
-                                color: Colors.green,
-                              ),
-                            );
-                          } else {
-                            scoreKeeper.add(
-                              Icon(
-                                Icons.radio_button_unchecked,
-                                color: Colors.red,
-                              ),
-                            );
-                          }
-                          quizzBrain.nextQuestion();
-                        },
-                      );
+                      checkAnswer(true);
                     },
                     child: Text(
                       'True',
@@ -109,27 +102,7 @@ class _QuizPageState extends State<QuizPage> {
                     textColor: Colors.white,
                     padding: EdgeInsets.all(10.0),
                     onPressed: () {
-                      setState(
-                        () {
-                          bool correctAnswer = quizzBrain.getCorrectAnswer();
-                          if (correctAnswer == true) {
-                            scoreKeeper.add(
-                              Icon(
-                                Icons.radio_button_unchecked,
-                                color: Colors.red,
-                              ),
-                            );
-                          } else {
-                            scoreKeeper.add(
-                              Icon(
-                                Icons.radio_button_unchecked,
-                                color: Colors.green,
-                              ),
-                            );
-                          }
-                          quizzBrain.nextQuestion();
-                        },
-                      );
+                      checkAnswer(false);
                     },
                     child: Text(
                       'False',
